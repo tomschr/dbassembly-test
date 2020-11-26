@@ -1,7 +1,7 @@
 # DocBook Assemblies
 
 This little repository is just a proof of concept. It should
-serve as an example of an _Installation and Setup Guide_.
+serve as an example of an _Installation and Setup Quick Start Guide_.
 
 
 # Terminology
@@ -19,7 +19,7 @@ This repo contains the following files and directories:
 
 * `topics/Installation_and_Setup_QuickStart_Guide.xml`
 
-  This is the _assembly file_. It contains references to other files, usually topics and forms the documentation.
+  This is the _assembly file_. It contains references to other files, usually topics and forms the documentation structure.
 
 * `topics/topic*.xml`
 
@@ -32,17 +32,17 @@ This repo contains the following files and directories:
 
 # Building the Documentation
 
-Just run `build.sh`. However, there are no options supported.
+Just run `build.sh`. Currently no options are supported.
 
 The process is split into two parts:
 
-1. Create the realized file from the assembly file.
+1. Create the realized structure from the assembly file.
 
    This step is a transformation process with the DocBook Assembly XSLT stylesheet (`assembly.xsl`). This produces a document that is stored under the `xml/` directory.
 
 2. Build the target format with `daps`.
 
-   When the first step was successful, the file in the `xml/` directory can be processed with `daps`.
+   When the first step was successful, the file in the `xml/` directory is  processed with `daps` to create HTML.
 
 
 
