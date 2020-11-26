@@ -17,7 +17,7 @@ This repo contains the following files and directories:
 
    Contain all topic related XML files (usually with the root element `<topic>`.
 
-* `topics/InstallationGuide.aby`
+* `topics/Installation_and_Setup_QuickStart_Guide.xml`
 
   This is the _assembly file_. It contains references to other files, usually topics and forms the documentation.
 
