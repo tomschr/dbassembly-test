@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+
+<topic xmlns="http://docbook.org/ns/docbook" xml:id="sec-ha-requirements-sw"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <info>
+        <title>Software Requirements</title>
+    </info>
+    <para> On all nodes that will be part of the cluster the following software
+        must be installed. </para>
+    <itemizedlist>
+        <listitem>
+            <para> &slsreg; &productnumber; (with all available online updates)
+            </para>
+        </listitem>
+        <listitem>
+            <para> &productname; &productnumber; (with all available online
+                updates) </para> &sys-req-sw-sleha; </listitem>
+        <listitem>
+            <para> (Optional) For &geo; clusters: &hageo; &productnumber; (with
+                all available online updates) </para>
+        </listitem>
+    </itemizedlist>
+</topic>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/docbook.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!DOCTYPE topic
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<topic xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
+    <info>
+        <title>Hardware Requirements</title>
+    </info>
+    <para> The following list specifies hardware requirements for a cluster
+        based on &productnamereg;. These requirements represent the minimum
+        hardware configuration. Additional hardware might be necessary,
+        depending on how you intend to use your cluster. </para>
+
+    <variablelist>
+        <varlistentry>
+            <term>Servers</term>
+            <listitem>
+                <para> 1 to 32 Linux servers with software as specified in <!--<xref
+                        linkend="sec-ha-requirements-sw"/>-->. </para>
+                &sys-req-hw-nodes; 
+              <para> Using
+                        <literal>pacemaker_remote</literal>, the cluster can be
+                    extended to include additional Linux servers beyond the
+                    32-node limit. </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Communication Channels</term>
+            <listitem> &sys-req-hw-comm-channels; <para>For details, refer to
+                        <!--<xref linkend="cha-ha-netbonding"/>--> and <!--<xref
+                        linkend="pro-ha-installation-setup-channel2"/>-->,
+                    respectively.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Node Fencing/&stonith;</term>
+            <listitem> &sys-req-hw-stonith; <para>Unless SBD is used, each node
+                    in the &ha; cluster must have at least one &stonith; device.
+                    We strongly recommend multiple &stonith; devices per
+                    node.</para> &important-stonith; </listitem>
+        </varlistentry>
+    </variablelist>
+</topic>
