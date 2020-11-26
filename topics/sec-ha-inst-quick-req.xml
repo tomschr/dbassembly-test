@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<topic xmlns="http://docbook.org/ns/docbook" xml:id="sec-ha-inst-quick-req">
+  <title>System Requirements</title>
+  <para> This section informs you about the key system requirements for the
+    scenario described in <xref linkend="sec-ha-inst-quick-usage-scenario"/>. If
+    you want to adjust the cluster for use in a production environment, read the
+    full list of <citetitle>System Requirements and Recommendations</citetitle>
+    in the <citetitle>Administration Guide</citetitle> for <phrase
+      role="roductnamereg"><phrase os="sles">SUSE® Linux Enterprise High
+        Availability Extension</phrase></phrase>: <link
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xlink:href="https://www.suse.com/documentation/sle-ha-12/book_sleha/data/cha_ha_requirements.html"
+    />. </para>
+  <variablelist xml:id="vl-ha-inst-quick-req-hw">
+    <title>Hardware Requirements</title>
+    <varlistentry>
+      <term>Servers</term>
+      <listitem>
+        <para> Two servers with software as specified in <xref
+            linkend="il-ha-inst-quick-req-sw"/>. </para>
+        <para> The servers can be bare metal or virtual machines. They do not
+          require identical hardware (memory, disk space, etc.), but they must
+          have the same architecture. Cross-platform clusters are not supported. </para>
+        <!--<para>
+     The servers can be bare metal or virtual machines. They do not require
+     identical hardware (memory, disk space, etc.), but they must have the
+     same architecture. Cross-platform clusters are not supported.
+     </para>-->
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Communication Channels</term>
+      <listitem>
+        <para> At least two TCP/IP communication media per cluster node. The
+          network equipment must support the communication means you want to use
+          for cluster communication: multicast or unicast. The communication
+          media should support a data rate of 100 Mbit/s or higher. For a
+          supported cluster setup two or more redundant communication paths are
+          required. This can be done via:</para>
+        <itemizedlist>
+          <listitem>
+            <para> Network Device Bonding (to be preferred). </para>
+          </listitem>
+          <listitem>
+            <para> A second communication channel in Corosync. </para>
+          </listitem>
+          <listitem>
+            <para> Network fault tolerance on infrastructure layer (for example,
+              hypervisor). </para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Node Fencing/STONITH</term>
+      <listitem>
+        <para> To avoid a <quote>split brain</quote> scenario, clusters need a
+          node fencing mechanism. In a split brain scenario, cluster nodes are
+          divided into two or more groups that do not know about each other
+          (because of a hardware or software failure or because of a cut network
+          connection). A fencing mechanism isolates the node in question
+          (usually by resetting or powering off the node). This is also called
+          STONITH (<quote>Shoot the other node in the head</quote>). A node
+          fencing mechanism can be either a physical device (a power switch) or
+          a mechanism like SBD (STONITH by disk) in combination with a watchdog.
+          Using SBD requires shared storage. </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para> On all nodes that will be part of the cluster the following software
+    must be installed: </para>
+  <itemizedlist xml:id="il-ha-inst-quick-req-sw">
+    <title>Software Requirements</title>
+    <listitem>
+      <para> SUSE® Linux Enterprise Server <phrase role="productnumber"><phrase
+            os="sles">12 SP4</phrase></phrase> (with all available online
+        updates) </para>
+    </listitem>
+    <listitem>
+      <para>
+        <phrase role="productname"><phrase os="sles">SUSE Linux Enterprise High
+            Availability Extension</phrase></phrase>
+        <phrase role="productnumber"><phrase os="sles">12 SP4</phrase></phrase>
+        (with all available online updates) </para>
+    </listitem>
+  </itemizedlist>
+  <variablelist xml:id="vl-ha-inst-quick-req-other">
+    <title>Other Requirements and Recommendations</title>
+    <varlistentry>
+      <term>Time Synchronization</term>
+      <listitem xmlns:xlink="http://www.w3.org/1999/xlink">
+        <para> Cluster nodes must synchronize to an NTP server outside the
+          cluster. For more information, see the <citetitle>Administration
+            Guide</citetitle> for SUSE Linux Enterprise Server <phrase
+            role="productnumber"><phrase os="sles">12 SP4</phrase></phrase>:
+            <link
+            xlink:href="http://www.suse.com/documentation/sles-12/book_sle_admin/data/cha_netz_xntp.html"
+          />. </para>
+        <para> If nodes are not synchronized, the cluster may not work properly.
+          In addition, log files and cluster reports are very hard to analyze
+          without synchronization. If you use the bootstrap scripts, you will be
+          warned if NTP is not configured yet. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Host Name and IP Address</term>
+      <listitem>
+        <itemizedlist>
+          <listitem>
+            <para> Use static IP addresses. </para>
+          </listitem>
+          <listitem>
+            <para> List all cluster nodes in the <filename>/etc/hosts</filename>
+              file with their fully qualified host name and short host name. It
+              is essential that members of the cluster can find each other by
+              name. If the names are not available, internal cluster
+              communication will fail. </para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </varlistentry>
+    <varlistentry xml:id="vle-ha-req-ssh">
+      <term>SSH</term>
+      <listitem>
+        <para> All cluster nodes must be able to access each other via SSH.
+          Tools like <command>crm report</command> (for troubleshooting) and
+          Hawk2's <guimenu>History Explorer</guimenu> require passwordless SSH
+          access between the nodes, otherwise they can only collect data from
+          the current node. </para>
+        <para> If you use the bootstrap scripts for setting up the cluster, the
+          SSH keys will automatically be created and copied. </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</topic>

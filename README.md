@@ -32,6 +32,8 @@ This repo contains the following files and directories:
 
 # Building the Documentation
 
+Just run `build.sh`. However, there are no options supported.
+
 The process is split into two parts:
 
 1. Create the realized file from the assembly file.
@@ -41,6 +43,7 @@ The process is split into two parts:
 2. Build the target format with `daps`.
 
    When the first step was successful, the file in the `xml/` directory can be processed with `daps`.
+
 
 
 # For More Information

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<topic xmlns="http://docbook.org/ns/docbook"
+ xml:id="sec-ha-inst-quick-bootstrap">
+ <title>Overview of the Bootstrap Scripts</title>
+ <para> All commands from the <package>ha-cluster-bootstrap</package> package
+  execute bootstrap scripts that require only a minimum of time and manual
+  intervention. </para>
+ <itemizedlist>
+  <listitem>
+   <para> With <command>ha-cluster-init</command>, define the basic parameters
+    needed for cluster communication. This leaves you with a running one-node
+    cluster. </para>
+  </listitem>
+  <listitem>
+   <para> With <command>ha-cluster-join</command>, add more nodes to your
+    cluster. </para>
+  </listitem>
+  <listitem>
+   <para> With <command>ha-cluster-remove</command>, remove nodes from your
+    cluster. </para>
+  </listitem>
+ </itemizedlist>
+ <para> All bootstrap scripts log to
+   <filename>/var/log/ha-cluster-bootstrap.log</filename>. Check this file for
+  any details of the bootstrap process. Any options set during the bootstrap
+  process can be modified later with the YaST cluster module. See <link
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xlink:href="https://www.suse.com/documentation/sle-ha-12/book_sleha/data/sec_ha_install_manual.html"
+  /> for details. </para>
+ <para>Each script comes with a man page covering the range of functions, the
+  script's options, and an overview of the files the script can create and
+  modify. </para>
+ <para> The bootstrap script <command>ha-cluster-init</command> checks and
+  configures the following components: </para>
+ <variablelist>
+  <varlistentry>
+   <term>NTP</term>
+   <listitem>
+    <para> If NTP has not been configured to start at boot time, a message
+     appears. </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>SSH</term>
+   <listitem>
+    <para>It creates SSH keys for passwordless login between cluster nodes.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Csync2</term>
+   <listitem>
+    <para> It configures Csync2 to replicate configuration files across all
+     nodes in a cluster. </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Corosync</term>
+   <listitem>
+    <para>It configures the cluster communication system.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>SBD/Watchdog</term>
+   <listitem>
+    <para>It checks if a watchdog exists and asks you whether to configure SBD
+     as node fencing mechanism.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Virtual Floating IP</term>
+   <listitem>
+    <para>It asks you whether to configure a virtual IP address for cluster
+     administration with Hawk2.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Firewall</term>
+   <listitem>
+    <para>It opens the ports in the firewall that are needed for cluster
+     communication.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Cluster Name</term>
+   <listitem>
+    <para>It defines a name for the cluster, by default
+       <systemitem>cluster<replaceable>NUMBER</replaceable></systemitem>. This
+     is optional and mostly useful for Geo clusters. Usually, the cluster name
+     reflects the location and makes it easier to distinguish a site inside a
+     Geo cluster.</para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
+</topic>

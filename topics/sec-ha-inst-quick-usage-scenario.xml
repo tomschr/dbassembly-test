@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<topic xmlns="http://docbook.org/ns/docbook"
+  xml:id="sec-ha-inst-quick-usage-scenario">
+  <title>Usage Scenario</title>
+  <para> The procedures in this document will lead to a minimal setup of a
+    two-node cluster with the following properties: </para>
+  <itemizedlist>
+    <listitem>
+      <para> Two nodes: <systemitem class="server">alice</systemitem> (IP:
+          <systemitem class="ipaddress">192.168.1.1</systemitem>) and
+          <systemitem class="server">bob</systemitem> (IP: <systemitem
+          class="ipaddress">192.168.1.2</systemitem>), connected to each other
+        via network. </para>
+    </listitem>
+    <listitem>
+      <para> A floating, virtual IP address (<systemitem class="ipaddress"
+          >192.168.2.1</systemitem>) which allows clients to connect to the
+        service no matter which physical node it is running on. </para>
+    </listitem>
+    <listitem>
+      <para>A shared storage device, used as SBD fencing mechanism. This avoids
+        split brain scenarios. </para>
+    </listitem>
+    <listitem>
+      <para> Failover of resources from one node to the other if the active host
+        breaks down (<emphasis>active/passive</emphasis> setup). </para>
+    </listitem>
+  </itemizedlist>
+  <para> After setup of the cluster with the bootstrap scripts, we will monitor
+    the cluster with the graphical HA Web Konsole (Hawk), one of the cluster
+    management tools included with <phrase role="roductnamereg"><phrase
+        os="sles">SUSE® Linux Enterprise High Availability
+      Extension</phrase></phrase>. As a basic test of whether failover of
+    resources works, we will put one of the nodes into standby mode and check if
+    the virtual IP address is migrated to the second node. </para>
+  <para> You can use the two-node cluster for testing purposes or as a minimal
+    cluster configuration that you can extend later on. Before using the cluster
+    in a production environment, modify it according to your requirements.
+  </para>
+</topic>
