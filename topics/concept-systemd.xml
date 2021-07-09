@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<topic version="5.2" xml:id="concept-systemd"
+  xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <info>
+    <title>Systemd</title>
+  </info>
+  <para>TBD</para>
+</topic>

@@ -1,57 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?xml-model href="assembly51b7.rnc"  type="application/relax-ng-compact-syntax"?>
-<?xml-model href="http://docbook.org/xml/5.1/sch/assembly.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="/usr/share/xml/docbook/schema/rng/5.2/assembly.rnc" 
+            type="application/relax-ng-compact-syntax"?>
+<?xml-model href="http://docbook.org/xml/5.1/sch/assembly.sch"
+            type="application/xml"
+            schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <assembly xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://docbook.org/ns/docbook">
   <resources>
-    <resource fileref="article.xml" xml:id="art-ha-install-quick"/>
-    <resource fileref="sec-ha-inst-quick-usage-scenario.xml" xml:id="sec-ha-inst-quick-usage-scenario">
+    <resource href="article.xml" xml:id="art-ha-install-quick"/>
+    <resource href="sec-ha-inst-quick-usage-scenario.xml" xml:id="sec-ha-inst-quick-usage-scenario">
       <description>Usage Scenario</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-req.xml" xml:id="sec-ha-inst-quick-req">
+    <resource href="sec-ha-inst-quick-req.xml" xml:id="sec-ha-inst-quick-req">
       <description>System Requirements</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-bootstrap.xml" xml:id="sec-ha-inst-quick-bootstrap">
+    <resource href="sec-ha-inst-quick-bootstrap.xml" xml:id="sec-ha-inst-quick-bootstrap">
       <description>Overview of the Bootstrap Scripts</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-installation.xml" xml:id="sec-ha-inst-quick-installation">
+    <resource href="sec-ha-inst-quick-installation.xml" xml:id="sec-ha-inst-quick-installation">
       <description>Installing SUSE Linux Enterprise Server and High Availability Extension</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-sbd.xml" xml:id="sec-ha-inst-quick-sbd">
+    <resource href="sec-ha-inst-quick-sbd.xml" xml:id="sec-ha-inst-quick-sbd">
       <description>Using SBD as Fencing Mechanism</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-sbd-req.xml" xml:id="sec-ha-inst-quick-sbd-req">
+    <resource href="sec-ha-inst-quick-sbd-req.xml" xml:id="sec-ha-inst-quick-sbd-req">
       <description>Requirements for SBD</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-sbd-setup.xml" xml:id="sec-ha-inst-quick-sbd-setup">
+    <resource href="sec-ha-inst-quick-sbd-setup.xml" xml:id="sec-ha-inst-quick-sbd-setup">
       <description>Setting Up Softdog Watchdog and SBD</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-setup-1st-node.xml" xml:id="sec-ha-inst-quick-setup-1st-node">
+    <resource href="sec-ha-inst-quick-setup-1st-node.xml" xml:id="sec-ha-inst-quick-setup-1st-node">
       <description>Setting Up the First Node</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-setup-2nd-node.xml" xml:id="sec-ha-inst-quick-setup-2nd-node">
+    <resource href="sec-ha-inst-quick-setup-2nd-node.xml" xml:id="sec-ha-inst-quick-setup-2nd-node">
       <description>Adding the Second Node</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-test.xml" xml:id="sec-ha-inst-quick-test">
+    <resource href="sec-ha-inst-quick-test.xml" xml:id="sec-ha-inst-quick-test">
       <description>Testing the Cluster</description>
     </resource>
-    <resource fileref="sec-ha-inst-quick-moreinfo.xml" xml:id="sec-ha-inst-quick-moreinfo">
+    <resource href="sec-ha-inst-quick-moreinfo.xml" xml:id="sec-ha-inst-quick-moreinfo">
       <description>For More Information</description>
     </resource>
-    <resource fileref="legal.xml" xml:id="legal">
+    <resource href="legal.xml" xml:id="legal">
       <description>Legal Notice</description>
     </resource>
-    <resource fileref="licenses.xml" xml:id="gnu-licenses">
+    <resource href="licenses.xml" xml:id="gnu-licenses">
       <description>GNU Licenses</description>
     </resource>
-    <resource fileref="gfdl.xml" xml:id="gfdl">
+    <resource href="gfdl.xml" xml:id="gfdl">
       <description>GNU Free Documentation License</description>
     </resource>
   </resources>
 
   <structure resourceref="art-ha-install-quick">
     <output renderas="article"/>
-    <module resourceref="sec-ha-inst-quick-usage-scenario"/>
+    <module resourceref="sec-ha-inst-quick-usage-scenario" />
     <module resourceref="sec-ha-inst-quick-req"/>
     <module resourceref="sec-ha-inst-quick-bootstrap"/>
     <module resourceref="sec-ha-inst-quick-installation"/>
@@ -63,10 +66,12 @@
     <module resourceref="sec-ha-inst-quick-setup-2nd-node"/>
     <module resourceref="sec-ha-inst-quick-test"/>
     <module resourceref="sec-ha-inst-quick-moreinfo"/>
+
     <module resourceref="legal"/>
     <module resourceref="gnu-licenses">
       <output renderas="appendix"/>
       <module resourceref="gfdl"/>
     </module>
   </structure>
+
 </assembly>

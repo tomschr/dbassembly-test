@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.1/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<topic version="5.2" xml:id="topic-listing-units-sockets-timers"
+  xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <info>
+    <title>Listing units, sockets, and timers</title>
+  </info>
+  <para></para>
+  <section>
+    <title>Listing units</title>
+    <para>Use the following command to list all active and loaded units:</para>
+    <screen>systemctl list-units</screen>
+  </section>
+  <section>
+    <title>Listing sockets</title>
+    <para>Use the following command to list all active sockets:</para>
+    <screen>systemctl list-sockets</screen>
+    <para>To restrict the list, use a pattern like so:</para>
+    <screen>systemctl list-sockets libvirt\*</screen>
+  </section>
+  <section>
+    <title>Listing timers</title>
+    <para>Use the following command to list all active and loaded units:</para>
+    <screen>systemctl list-timers</screen>
+    
+  </section>
+</topic>
