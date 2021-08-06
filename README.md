@@ -1,6 +1,6 @@
 # DocBook Assemblies
 
-This little repository is just a proof of concept. It should
+This little repository is just a proof-of-concept. It should
 serve as an example of an _Installation and Setup Quick Start Guide_.
 
 
@@ -48,4 +48,4 @@ The process is split into two parts:
 
 # For More Information
 
-* https://tdg.docbook.org/tdg/5.1/ch06.html
+* https://tdg.docbook.org/tdg/5.2/ch06.html

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<sect1 xmlns="http://docbook.org/ns/docbook"
+<section xmlns="http://docbook.org/ns/docbook"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" role="legal">
  <title>GNU Free Documentation License</title>
@@ -348,4 +348,4 @@
   recommend releasing these examples in parallel under your choice of free
   software license, such as the GNU General Public License, to permit their use
   in free software. </para>
-</sect1>
+</section>

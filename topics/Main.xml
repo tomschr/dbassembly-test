@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.2/rng/assembly.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<!--
+<?xml-model href="http://docbook.org/xml/5.2/sch/assembly.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+-->
+
+<assembly version="5.2" xmlns="http://docbook.org/ns/docbook">
+    <resources>
+        <resource xml:id="article-scenario-systemd" href="article-scenario-systemd.xml"/>
+    </resources>
+    <resources >
+        <description>Concepts</description>
+        <resource xml:id="concept-systemd" href="concept-systemd.xml"/>
+        <resource xml:id="concept-cgroups" href="concept-cgroups.xml"/>
+        <resource xml:id="concept-ipv4" href="concept-ipv4.xml"/>
+        <resource xml:id="concept-ipv6" href="concept-ipv6.xml"/>
+        <resource xml:id="concept-network" href="concept-network.xml"/>
+    </resources>
+    <resources>
+        <description>Topics</description>
+        <resource xml:id="topic-getting-overview" href="topic-getting-overview.xml"/>
+        <resource xml:id="topic-setting-up-systemd-timers" href="topic-setting-up-systemd-timers.xml"/>
+        <resource xml:id="topic-listing-units-sockers-and-timers" href="topic-listing-units-sockets-and-timers.xml"/>
+        <resource xml:id="topic-listing-dependencies" href="topic-listing-dependencies.xml"/>
+        <resource xml:id="topic-starting-stopping" href="topic-starting-stopping.xml"/>
+    </resources>
+    <resources>
+        <description>References</description>
+        <resource xml:id="ref-systemd-commands"  href="ref-systemd-commands.xml"/>
+    </resources>
+    <resources>
+        <description>Legal resources</description>
+        <resource xml:id="legal-gfdl" href="common-gfdl.xml"/>
+        <resource xml:id="legal-licenses" href="licenses.xml"/>
+        <resource xml:id="legal" href="legal.xml"/>
+        <resource xml:id="legal-gpl" href="common-gpl.xml"/>
+    </resources>
+
+    <!-- ============================================= -->
+    <structure xml:id="struct-systemd" resourceref="article-scenario-systemd">
+        <merge xml:id="foo" xml:lang="bla"/>
+
+        <module resourceref="concept-systemd"/>
+
+        <module resourceref="topic-getting-overview"/>
+        <module resourceref="topic-starting-stopping"/>
+        <module resourceref="topic-listing-units-sockers-and-timers">
+            <merge>
+                <title>Listing resources</title>
+            </merge>
+            <module resourceref="topic-listing-dependencies"/>
+        </module>
+        <module resourceref="topic-setting-up-systemd-timers"/>
+
+        <module resourceref="legal-licenses" renderas="appendix">
+            <module resourceref="legal-gfdl"/>
+            <module resourceref="legal-gpl"/>
+        </module>
+    </structure>
+    
+    <transforms>
+        <transform name="cleanup" href="cleanup.xsl"/>
+    </transforms>
+</assembly>
